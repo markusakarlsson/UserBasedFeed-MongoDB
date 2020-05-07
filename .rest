@@ -16,3 +16,19 @@ Content-Type: application/json
     "title": "My first post",
     "textContent": "Hello, here's my fabulous post"
 }
+
+###
+
+GET http://localhost:3000/posts/
+Content-Type: application/json
+
+
+###
+
+PUT http://localhost:3000/posts/update
+Content-Type: application/json
+
+{
+    "title": "",
+    "textContent": ""
+}
