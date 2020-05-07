@@ -20,6 +20,9 @@ const postsRouter = require("./routes/posts");
 
 app.use("/posts", postsRouter);
 
+
+// Server running
+
 app.listen(3000, () => console.log("listening at 3000"));
 
 // Create connection
