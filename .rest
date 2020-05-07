@@ -1,7 +1,9 @@
+// GET all users
 GET http://localhost:3000/users
 
 ###
 
+// Add/create a user
 POST http://localhost:3000/users/add
 Content-type: application/json
 
@@ -12,6 +14,8 @@ Content-type: application/json
 
 ###
 
+
+// Add/create a post
 POST http://localhost:3000/posts/add
 Content-Type: application/json
 
@@ -23,16 +27,11 @@ Content-Type: application/json
 
 ###
 
+// GET all posts
 GET http://localhost:3000/posts/
-Content-Type: application/json
 
 
 ###
 
+// GET one specific post
 GET http://localhost:3000/posts/5eb3f59951f05f18453e1388
-Content-Type: application/json
-
-{
-    "title": "HEJ",
-    "textContent": "utbytt"
-}
