@@ -29,4 +29,13 @@ router.route("/:id").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 }); 
 
+
+router.route("/:id").put((req, res) => {
+    Post.findOneAndUpdate({_id: req.params.id}, {title: "Updated title", textContent: "Updated text content"  })
+    .then(() => res.json("Post updated!"))
+    .catch((err) => res.status(400).json("Error: " + err));
+    
+})
+
+
 module.exports = router;
