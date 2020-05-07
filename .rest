@@ -8,8 +8,8 @@ POST http://localhost:3000/users/add
 Content-type: application/json
 
 {
-    "username": "Pelle",
-    "password": "1234"
+    "username": "Camilla",
+    "password": "j771klw!"
 }
 
 ###
