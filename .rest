@@ -40,5 +40,5 @@ GET http://localhost:3000/posts/5eb3f59951f05f18453e1388
 
 
 // UPDATE a specific post
-PUT http://localhost:3000/posts/5eb3f8f95ce64a1a465dbce6
+PUT http://localhost:3000/posts/5eb3c4bc1c9eaf0b7b53e508
 Content-Type: application/json
