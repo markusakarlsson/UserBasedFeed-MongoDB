@@ -2,6 +2,16 @@ POST http://localhost:3000/users/add
 Content-type: application/json
 
 {
-    "name": "Camilla",
+    "username": "Camilla",
     "password": "J78jk!"
+}
+
+###
+
+POST http://localhost:3000/posts/add
+Content-Type: application/json
+
+{
+    "username": "Markus",
+    "textContent": "Hello, here's my fabulous post"
 }
