@@ -17,8 +17,8 @@ Content-Type: application/json
 
 {
     "username": "Markus",
-    "title": "My first post",
-    "textContent": "Hello, here's my fabulous post"
+    "title": "One post of many",
+    "textContent": "Hello, hello hello"
 }
 
 ###
@@ -29,10 +29,10 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/posts/update
+GET http://localhost:3000/posts/5eb3f59951f05f18453e1388
 Content-Type: application/json
 
 {
-    "title": "",
-    "textContent": ""
+    "title": "HEJ",
+    "textContent": "utbytt"
 }

@@ -2,6 +2,13 @@
 const router = require("express").Router();
 let Post = require("../models/post.model");
 
+router.route("/").get((req, res) => {
+    Post.find()
+      .then((posts) => res.json(posts))
+      .catch((err) => res.status(400).json("Error: " + err));
+  });
+  
+
 router.route("/add").post((req, res) => {
   const username = req.body.username;
   const title = req.body.title;
@@ -15,16 +22,11 @@ router.route("/add").post((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/").get((req, res) => {
-  Post.find()
-    .then((posts) => res.json(posts))
-    .catch((err) => res.status(400).json("Error: " + err));
-});
 
-router.route("/update").put((req, res) => {
- Post.find()
- .then()
- .catch((err) => res.status(400).json("Error: " + err));
+router.route("/:id").get((req, res) => {
+    Post.findOne({ _id: req.params.id })
+    .then((post) => res.json(post))
+    .catch((err) => res.status(400).json("Error: " + err));
 }); 
 
 module.exports = router;
