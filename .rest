@@ -6,8 +6,8 @@ POST http://localhost:3000/users/add
 Content-type: application/json
 
 {
-    "username": "Kalle",
-    "password": "993Hj112"
+    "username": "Pelle",
+    "password": "1234"
 }
 
 ###
