@@ -1,7 +1,9 @@
+// GET all users
 GET http://localhost:3000/users
 
 ###
 
+// Add/create a user
 POST http://localhost:3000/users/add
 Content-type: application/json
 
@@ -12,14 +14,34 @@ Content-type: application/json
 
 ###
 
+
+// Add/create a post
 POST http://localhost:3000/posts/add
 Content-Type: application/json
 
 {
     "username": "Markus",
-    "title": "My first post",
-    "textContent": "Hello, here's my fabulous post"
+    "title": "One post of many",
+    "textContent": "Hello, hello hello"
 }
+
+###
+
+// GET all posts
+GET http://localhost:3000/posts/
+
+
+###
+
+// GET one specific post
+GET http://localhost:3000/posts/5eb3f59951f05f18453e1388
+
+###
+
+
+// UPDATE a specific post
+PUT http://localhost:3000/posts/5eb3c4bc1c9eaf0b7b53e508
+Content-Type: application/json
 
 ###
 
