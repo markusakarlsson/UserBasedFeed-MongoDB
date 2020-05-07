@@ -1,4 +1,5 @@
 // Create app
+require("./connection.js");
 
 const express = require("express");
 
@@ -24,17 +25,3 @@ app.use("/posts", postsRouter);
 // Server running
 
 app.listen(3000, () => console.log("listening at 3000"));
-
-// Create connection
-
-var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/userbasedfeed", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-var db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function () {
-  console.log("Connection created!");
-});
