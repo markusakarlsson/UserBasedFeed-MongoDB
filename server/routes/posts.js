@@ -4,9 +4,10 @@ let Post = require("../models/post.model");
 
 router.route("/add").post((req, res) => {
     const username = req.body.username;
+    const title = req.body.title;
     const textContent = req.body.textContent;
 
-    const newPost = new Post({ username, textContent });
+    const newPost = new Post({ username, title, textContent });
 
     newPost
         .save()

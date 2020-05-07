@@ -13,5 +13,6 @@ Content-Type: application/json
 
 {
     "username": "Markus",
+    "title": "My first post",
     "textContent": "Hello, here's my fabulous post"
 }
