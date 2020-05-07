@@ -21,8 +21,10 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-/* router.route("/update").put((req, res) => {
- 
-}); */
+router.route("/update").put((req, res) => {
+ Post.find()
+ .then()
+ .catch((err) => res.status(400).json("Error: " + err));
+}); 
 
 module.exports = router;
