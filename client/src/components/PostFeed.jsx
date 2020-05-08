@@ -3,9 +3,7 @@ import axios from "axios";
 
 class PostFeed extends React.Component {
   state = {
-    title: "",
-    textContent: "",
-    posts: [],
+    posts: []
   };
 
   componentDidMount = () => {
