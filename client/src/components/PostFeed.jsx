@@ -14,12 +14,9 @@ class PostFeed extends React.Component {
 
   getAllPosts() {
     fetch('http://localhost:3000/posts/')
-    .then((response) => {
-      return response.json();
-    })
-    .then((posts) => {
+    .then(posts => {
       console.log(posts);
-    });
+    })
   };
 
 
