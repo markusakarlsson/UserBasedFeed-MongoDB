@@ -1,21 +1,27 @@
 import React from "react";
-//import axios from "axios";
-
+import axios from "axios";
 
 class PostFeed extends React.Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      lists: []
-    }
+  state = {
+    posts: []
+  }
+
+  componentDidMount = () => {
+    this.getAllPosts()
+    console.log(this.state.posts)
   }
 
 
-  getAllPosts() {
-    fetch('http://localhost:3000/posts/')
-    .then(posts => {
-      console.log(posts);
+  getAllPosts = () => {
+    axios.get('http://localhost:3001/posts/')
+    .then((response) => {
+    const post = response;
+    this.setState({ posts: post });
+      console.log("data has been received");
+    })
+    .catch(() => {
+      alert("error retrieving data")
     })
   };
 
@@ -27,7 +33,7 @@ class PostFeed extends React.Component {
       return (
           <div className="postFeedContainer" style={{ border: "1px solid black", height: "100vh", width: "50vw"}}>
             <h2>Post feed</h2>
-            <div>{this.getAllPosts()}</div>
+           {/*  <div>{this.getAllPosts()}</div> */}
            {/*  <div>
             {this.state.lists.map((list) => {
             <div key={list.username}>

@@ -3,9 +3,13 @@ require("./connection.js");
 
 const express = require("express");
 
+const cors = require('cors');
+
 const app = express();
 
 app.use(express.json());
+
+app.use(cors());
 
 app.use(express.static("public"));
 
@@ -24,4 +28,4 @@ app.use("/posts", postsRouter);
 
 // Server running
 
-app.listen(3000, () => console.log("listening at 3000"));
+app.listen(3001, () => console.log("listening at 3001"));
