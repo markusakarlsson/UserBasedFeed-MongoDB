@@ -22,6 +22,7 @@ class PostFeed extends React.Component {
       });
   };
 
+
   displayPosts = (posts) => {
     
     if (!posts.length) return null;

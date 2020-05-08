@@ -17,6 +17,13 @@ class NewPost extends React.Component {
     });
   };
 
+  reset = () => {
+    this.setState({
+      title: "",
+      textContent: ""
+    })
+  }
+
   submit = (event) => {
     event.preventDefault();
 
@@ -32,6 +39,7 @@ class NewPost extends React.Component {
     })
       .then(() => {
         console.log("data sent to server")
+        this.reset();
       })
       .catch(() => {
         console.log("error")
