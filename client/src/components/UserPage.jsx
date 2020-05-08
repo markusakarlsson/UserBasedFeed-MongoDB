@@ -1,4 +1,5 @@
 import React from "react";
+import LogIn from "./LogIn";
 import NewPost from "./NewPost";
 
 function UserPage() {
@@ -14,6 +15,7 @@ function UserPage() {
       }}
     >
       <h2>User page</h2>
+      <LogIn></LogIn>
       <NewPost></NewPost>
     </div>
   );
