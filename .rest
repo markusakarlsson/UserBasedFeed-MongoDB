@@ -1,10 +1,10 @@
 // GET all users
-GET http://localhost:3000/users
+GET http://localhost:3001/users
 
 ###
 
 // Add/create a user
-POST http://localhost:3000/users/add
+POST http://localhost:3001/users/add
 Content-type: application/json
 
 {
@@ -16,35 +16,35 @@ Content-type: application/json
 
 
 // Add/create a post
-POST http://localhost:3000/posts/add
+POST http://localhost:3001/posts/add
 Content-Type: application/json
 
 {
-    "username": "Markus",
-    "title": "One post of many",
-    "textContent": "Hello, hello hello"
+    "username": "Lisa",
+    "title": "This is a story",
+    "textContent": "HEj hej dettta är en lite löngre post så att vi kan se lite hur det ser ut osv osv osv"
 }
 
 ###
 
 // GET all posts
-GET http://localhost:3000/posts/
+GET http://localhost:3001/posts/
 
 
 ###
 
 // GET one specific post
-GET http://localhost:3000/posts/5eb3f59951f05f18453e1388
+GET http://localhost:3001/posts/5eb3f59951f05f18453e1388
 
 ###
 
 
 // UPDATE a specific post
-PUT http://localhost:3000/posts/5eb3c4bc1c9eaf0b7b53e508
+PUT http://localhost:3001/posts/5eb3c4bc1c9eaf0b7b53e508
 Content-Type: application/json
 
 ###
 
 // DELETE a specific post
-DELETE http://localhost:3000/posts/5eb3c4bc1c9eaf0b7b53e508
+DELETE http://localhost:3001/posts/5eb3c4bc1c9eaf0b7b53e508
 Content-Type: application/json
