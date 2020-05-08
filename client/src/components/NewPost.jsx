@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios"
 
 class NewPost extends React.Component {
   state = {
@@ -6,19 +7,39 @@ class NewPost extends React.Component {
     textContent: "",
   };
 
+  handleChange = (event) => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
 
-handleChange = (event) => {
-const target = event.target;
-const name = target.name;
-const value = target.value;
+    this.setState({
+      [name]: value,
+    });
+  };
 
-this.setState({
-  [name]: value
-});
-};
+  submit = (event) => {
+    event.preventDefault();
+
+    const action = {
+      title: this.state.title,
+      textContent: this.state.textContent,
+    };
+    
+    axios({
+      url: "http://localhost:3001/posts/add",
+      method: "POST",
+      data: action,
+    })
+      .then(() => {
+        console.log("data sent to server")
+      })
+      .catch(() => {
+        console.log("error")
+      });
+  };
 
   render() {
-    console.log("State:", this.state)
+    console.log("State:", this.state);
     return (
       <div
         style={{
@@ -28,7 +49,7 @@ this.setState({
         }}
       >
         <h3>New post</h3>
-        <form>
+        <form onSubmit={this.submit}>
           <input
             type="text"
             name="title"
