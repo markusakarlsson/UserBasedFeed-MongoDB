@@ -29,7 +29,7 @@ class PostFeed extends React.Component {
     if (!posts.length) return null;
     
     return posts.map((post, index) => (
-        <div key={index} style={{border: "1px solid black"}}>
+        <div key={index} style={{border: "1px solid black", padding: "0.5rem"}}>
           <h3>Username: {post.username}</h3>
           <h4>Title: {post.title}</h4>
           <p>TextContent: {post.textContent}</p>
