@@ -9,16 +9,14 @@ class PostFeed extends React.Component {
 
   componentDidMount = () => {
     this.getAllPosts()
-    console.log(this.state.posts)
   }
 
 
   getAllPosts = () => {
     axios.get('http://localhost:3001/posts/')
     .then((response) => {
-    const post = response;
-    this.setState({ posts: post });
-      console.log("data has been received");
+      this.setState({ posts: response.data });
+      console.log("In function this.state:", this.state)
     })
     .catch(() => {
       alert("error retrieving data")
