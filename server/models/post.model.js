@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 
-const postSchema = new mongoose.Schema ({
-    username: String,
-    title: String,
-    textContent: String
+const postSchema = new mongoose.Schema({
+  userId: {
+    type: moongoose.Types.objectID,
+    ref: "User",
+  },
+  title: String,
+  textContent: String,
 });
-
 
 const Post = mongoose.model("Post", postSchema);
 
