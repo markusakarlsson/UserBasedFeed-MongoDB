@@ -1,6 +1,7 @@
 import React from "react";
 import LogIn from "./LogIn";
 import NewPost from "./NewPost";
+import MyPosts from "./MyPosts";
 
 
 class UserPage extends React.Component {
@@ -20,6 +21,7 @@ class UserPage extends React.Component {
         <h2>User page</h2>
         <LogIn/>
         <NewPost/>
+        <MyPosts />
       </div>
     );
   }
