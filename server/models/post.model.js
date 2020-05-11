@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema({
-  userId: {
-    type: moongoose.Types.objectID,
-    ref: "User",
-  },
+  username: String,
   title: String,
   textContent: String,
 });
