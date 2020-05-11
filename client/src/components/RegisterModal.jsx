@@ -1,7 +1,24 @@
 import React from "react";
 
 class RegisterModal extends React.Component {
+  state = {
+    username: "",
+    password: "",
+  };
+
+  handelInputChange = (event) => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+
+    this.setState({
+      [name]: value,
+    });
+  };
+
+
   render() {
+    console.log(this.state)
     return (
       <div
         style={{
@@ -13,11 +30,25 @@ class RegisterModal extends React.Component {
         }}
       >
         <h1>Register</h1>
-        <form style={{display: "flex", flexDirection: "column"}}>
-        <label>Username</label>
-          <input type="text" placeholder="Enter username" required />
+        <form style={{ display: "flex", flexDirection: "column" }}>
+          <label>Username</label>
+          <input
+            type="text"
+            name="username"
+            value={this.state.username}
+            onChange={this.handelInputChange}
+            placeholder="Enter a username"
+            required
+          />
           <label>Password</label>
-          <input type="password" placeholder="Enter password" required />
+          <input
+            type="password"
+            name="password"
+            value={this.state.password}
+            onChange={this.handelInputChange}
+            placeholder="Enter a password"
+            required
+          />
           <button type="submit">Register</button>
         </form>
       </div>
