@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios"
+import axios from "axios";
 
 class NewPost extends React.Component {
   state = {
@@ -47,7 +47,6 @@ class NewPost extends React.Component {
   };
 
   render() {
-    console.log("State:", this.state);
     return (
       <div
         style={{
