@@ -17,7 +17,10 @@ class UserPage extends React.Component {
           flexDirection: "column",
         }}
       >
+        <div style={{justifyContent: "space-between"}}>
         <h2>User page</h2>
+        <button></button>
+        </div>
         <LogIn/>
         <NewPost/>
       </div>
