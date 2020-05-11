@@ -4,23 +4,20 @@ import UserPage from "./UserPage";
 import RegisterModal from "./RegisterModal";
 
 
-
-
 class MainPage extends React.Component {
     state = {
         isOpen: false
     };
 
 
-
     handleRegisterClick = () => {
         this.setState({ isOpen: !this.state.isOpen })
     }
 
-    closeRegisterModal() {
+ /*    closeRegisterModal = () => {
         this.setState({ isOpen: false })
     }
-
+ */
 
   render() {
     return (
@@ -30,7 +27,7 @@ class MainPage extends React.Component {
         </header>
         {this.state.isOpen && (
             <div style={{ position: "absolute", left: "32vw", top: "30vh" }}>
-          <RegisterModal closeRegisterModal={this.closeRegisterModal}/>
+          <RegisterModal />
         </div>
         )}
         <button 

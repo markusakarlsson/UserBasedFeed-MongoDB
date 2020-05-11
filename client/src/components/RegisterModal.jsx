@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 class RegisterModal extends React.Component {
   state = {
@@ -16,9 +17,42 @@ class RegisterModal extends React.Component {
     });
   };
 
+  resetInputFields = () => {
+    this.setState({
+      username: "",
+      password: ""
+    })
+  }
+
+  successfullyCreatedUser = () => {
+    alert("User was successfully created!")
+  }
+
+  submitRegister = (event) => {
+    event.preventDefault();
+
+    const inputValues = {
+      username: this.state.username,
+      password: this.state.password,
+    };
+
+    axios({
+      url: "http://localhost:3001/users/add",
+      method: "POST",
+      data: inputValues,
+    })
+    .then(() => {
+      console.log("data sent to server")
+      this.resetInputFields();
+      this.successfullyCreatedUser();
+    })
+    .catch(() => {
+      console.log("error")
+    });
+  };
 
   render() {
-    console.log(this.state)
+    console.log(this.state);
     return (
       <div
         style={{
@@ -30,7 +64,7 @@ class RegisterModal extends React.Component {
         }}
       >
         <h1>Register</h1>
-        <form style={{ display: "flex", flexDirection: "column" }}>
+        <form onSubmit={this.submitRegister} style={{ display: "flex", flexDirection: "column" }}>
           <label>Username</label>
           <input
             type="text"
