@@ -39,6 +39,7 @@ router.route("/login").post(async (req, res) => {
     }
     // Check if user is already logged in
     if (req.session.username) {
+      console.log("youre already logged in")
       return res.status(200).json("You are already logged in");
     }
 

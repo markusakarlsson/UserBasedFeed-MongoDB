@@ -48,6 +48,7 @@ class LogIn extends React.Component {
     })
     .catch(() => {
       console.log("error logging in")
+      this.resetInputFields();
     });
   };
 
