@@ -44,6 +44,7 @@ router.route("/login").post(async (req, res) => {
 
     // Create session
     req.session.username = user.username;
+    req.session.userId = user._id;
 
     // Send a response
     res.send("Successfull login");
