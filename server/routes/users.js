@@ -21,7 +21,7 @@ router.route("/add").post(async (req, res) => {
 
   newUser
     .save()
-    .then(() => res.json(password))
+    .then(() => res.json(password), "User created")
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
