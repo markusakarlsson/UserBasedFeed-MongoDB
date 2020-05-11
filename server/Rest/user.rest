@@ -14,11 +14,22 @@ Content-type: application/json
 
 ###
 
+// Add/create a user
+POST http://localhost:3001/users/add
+Content-type: application/json
+
+{
+    "username": "Markan",
+    "password": "markan123"
+}
+
+###
+
 // Login in user
 POST http://localhost:3001/users/login
 Content-Type: application/json
 
 {
-    "username": "Camilla",
-    "password": "j771klw!"
+    "username": "Markan",
+    "password": "markan123"
 }

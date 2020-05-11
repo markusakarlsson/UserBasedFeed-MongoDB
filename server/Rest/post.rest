@@ -4,8 +4,8 @@ POST http://localhost:3001/posts/add
 Content-Type: application/json
 
 {
-    "title": "Ny test på inlägg",
-    "textContent": "Det här är ett nytt test på userid och username"
+    "title": "Markans andra inlägg",
+    "textContent": "En post från Markan där han skriver hur bra han är"
 }
 
 ###
@@ -28,6 +28,11 @@ GET http://localhost:3001/posts/5eb3f59951f05f18453e1388
 // UPDATE a specific post
 PUT http://localhost:3001/posts/5eb3c4bc1c9eaf0b7b53e508
 Content-Type: application/json
+
+{
+    "title": "Ny titel",
+    "textContent": "Detta är texten till ett uppdaterat inlägg"
+}
 
 ###
 
