@@ -20,15 +20,18 @@ POST http://localhost:3001/posts/add
 Content-Type: application/json
 
 {
-    "username": "Lisa",
-    "title": "This is a story",
-    "textContent": "HEj hej dettta är en lite löngre post så att vi kan se lite hur det ser ut osv osv osv"
+    "username": "Camilla",
+    "title": "Another story",
+    "textContent": "Här skriver jag mitt andra inlägg och hoppas på att få tillbaka båda."
 }
 
 ###
 
 // GET all posts
 GET http://localhost:3001/posts/
+
+### 
+GET http://localhost:3001/posts/getownposts
 
 
 ###
@@ -48,3 +51,14 @@ Content-Type: application/json
 // DELETE a specific post
 DELETE http://localhost:3001/posts/5eb3c4bc1c9eaf0b7b53e508
 Content-Type: application/json
+
+###
+
+// Login in user
+POST http://localhost:3001/users/login
+Content-Type: application/json
+
+{
+    "username": "Camilla",
+    "password": "j771klw!"
+}
