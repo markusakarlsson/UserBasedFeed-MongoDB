@@ -1,11 +1,23 @@
 // Create app
 require("./connection.js");
 
+const cookieSession = require("cookie-session");
+
 const express = require("express");
 
-const cors = require('cors');
+const cors = require("cors");
 
 const app = express();
+
+app.use(
+  cookieSession({
+    secret: "aVeryS3cr3tk3y",
+    maxAge: 1000 * 10, //10s
+    sameSite: "strict",
+    httpOnly: true,
+    secure: false,
+  })
+);
 
 app.use(express.json());
 
@@ -24,7 +36,6 @@ app.use("/users", usersRouter);
 const postsRouter = require("./routes/posts");
 
 app.use("/posts", postsRouter);
-
 
 // Server running
 

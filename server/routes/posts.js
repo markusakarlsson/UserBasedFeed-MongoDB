@@ -8,6 +8,15 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+// router.route("/getownposts").get((req, res) => {
+//   Post.find({ username: req.session.username }, function (err, posts) {
+//     if (!req.session.username) {
+//       return res.status(401).json("You are not logged in");
+//     }
+//     res.json(posts);
+//   });
+// });
+
 router.route("/add").post((req, res) => {
   const username = req.body.username;
   const title = req.body.title;
@@ -18,12 +27,6 @@ router.route("/add").post((req, res) => {
   newPost
     .save()
     .then(() => res.json("Post posted!"))
-    .catch((err) => res.status(400).json("Error: " + err));
-});
-
-router.route("/").get((req, res) => {
-  Post.find()
-    .then((posts) => res.json(posts))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
