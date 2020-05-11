@@ -1,0 +1,45 @@
+
+// Add/create a post
+POST http://localhost:3001/posts/add
+Content-Type: application/json
+
+{
+    "title": "Markans andra inlägg",
+    "textContent": "En post från Markan där han skriver hur bra han är"
+}
+
+###
+
+// GET all posts
+GET http://localhost:3001/posts/
+
+### 
+
+// GET my own posts
+GET http://localhost:3001/posts/getownposts
+
+###
+
+// GET one specific post
+GET http://localhost:3001/posts/5eb3f59951f05f18453e1388
+
+###
+
+// UPDATE a specific post
+PUT http://localhost:3001/posts/5eb3c4bc1c9eaf0b7b53e508
+Content-Type: application/json
+
+{
+    "title": "Ny titel",
+    "textContent": "Detta är texten till ett uppdaterat inlägg"
+}
+
+###
+
+// DELETE a specific post
+DELETE http://localhost:3001/posts/5eb3c4bc1c9eaf0b7b53e508
+Content-Type: application/json
+
+
+
+

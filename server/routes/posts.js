@@ -8,21 +8,24 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-// router.route("/getownposts").get((req, res) => {
-//   Post.find({ username: req.session.username }, function (err, posts) {
-//     if (!req.session.username) {
-//       return res.status(401).json("You are not logged in");
-//     }
-//     res.json(posts);
-//   });
-// });
+router.route("/getownposts").get((req, res) => {
+  Post.find({ userId: req.session.userId }, function (err, posts) {
+    // if (!req.session.username) {
+    //   return res.status(401).json("You are not logged in");
+    // }
+    res.json(posts);
+  });
+});
 
 router.route("/add").post((req, res) => {
-  const username = req.body.username;
+  const userId = req.session.userId;
+  const username = req.session.username;
   const title = req.body.title;
   const textContent = req.body.textContent;
 
-  const newPost = new Post({ username, title, textContent });
+  const newPost = new Post({ userId, username, title, textContent });
+
+  console.log("REQ.SESSION.USERNAME IN ADD POST:", req.session.username);
 
   newPost
     .save()
@@ -39,7 +42,7 @@ router.route("/:id").get((req, res) => {
 router.route("/:id").put((req, res) => {
   Post.findOneAndUpdate(
     { _id: req.params.id },
-    { title: "Updated title", textContent: "Updated text content" }
+    { title: req.body.title, textContent: req.body.textContent }
   )
     .then(() => res.json("Post updated!"))
     .catch((err) => res.status(400).json("Error: " + err));

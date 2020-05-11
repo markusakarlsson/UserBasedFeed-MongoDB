@@ -1,0 +1,35 @@
+// GET all users
+GET http://localhost:3001/users
+
+###
+
+// Add/create a user
+POST http://localhost:3001/users/add
+Content-type: application/json
+
+{
+    "username": "Camilla",
+    "password": "j771klw!"
+}
+
+###
+
+// Add/create a user
+POST http://localhost:3001/users/add
+Content-type: application/json
+
+{
+    "username": "Markan",
+    "password": "markan123"
+}
+
+###
+
+// Login in user
+POST http://localhost:3001/users/login
+Content-Type: application/json
+
+{
+    "username": "Markan",
+    "password": "markan123"
+}

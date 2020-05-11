@@ -12,7 +12,7 @@ const app = express();
 app.use(
   cookieSession({
     secret: "aVeryS3cr3tk3y",
-    maxAge: 1000 * 10, //10s
+    maxAge: 1000 * 30, //10s
     sameSite: "strict",
     httpOnly: true,
     secure: false,
