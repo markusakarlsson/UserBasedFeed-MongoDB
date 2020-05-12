@@ -35,11 +35,12 @@ router.route("/login").post(async (req, res) => {
   async function logInUser(user) {
     // Check if username & password is correct
     if (!user || !(await bcrypt.compare(req.body.password, user.password))) {
+      console.log("Wrong username or password")
       return res.status(401).json("Wrong username or password");
     }
     // Check if user is already logged in
     if (req.session.username) {
-      console.log("youre already logged in")
+      console.log("Console.log in login at server:", "you're already logged in")
       return res.status(200).json("You are already logged in");
     }
 

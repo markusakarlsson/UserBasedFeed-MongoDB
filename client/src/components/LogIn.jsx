@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+/* import axios from "axios"; */
 
 class LogIn extends React.Component {
   state = {
@@ -20,26 +20,45 @@ class LogIn extends React.Component {
   resetInputFields = () => {
     this.setState({
       username: "",
-      password: ""
+      password: "",
     });
   };
 
   successfullyLoggedIn = () => {
-    alert("You were successfully logged in!")
+    alert("You were successfully logged in!");
   };
 
   submitLogin = (event) => {
     event.preventDefault();
 
-    const inputValues = {
+    const data = {
       username: this.state.username,
       password: this.state.password,
     };
 
-    axios({
+    fetch("http://localhost:3001/users/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify(data),
+    })
+    .then(() => {
+      console.log("data sent to server", data)
+      this.resetInputFields();
+      this.successfullyLoggedIn();
+    })
+    .catch((error) => {
+      console.log("error logging in", error, data)
+      this.resetInputFields();
+    });
+      
+    /* axios({
       url: "http://localhost:3001/users/login",
       method: "POST",
+      headers: { 'Content-Type': 'application/json' },
       data: inputValues,
+      credentials: "include",
+      body: JSON.stringify(inputValues)
     })
     .then(() => {
       console.log("data sent to server")
@@ -49,11 +68,11 @@ class LogIn extends React.Component {
     .catch(() => {
       console.log("error logging in")
       this.resetInputFields();
-    });
+    }); */
   };
 
   render() {
-    console.log(this.state)
+    console.log(this.state);
     return (
       <div
         className="logInContainer"
@@ -66,9 +85,12 @@ class LogIn extends React.Component {
           height: "20vh",
         }}
       >
-        <form onSubmit={this.submitLogin} style={{display: "flex", flexDirection: "column"}}>
-        <label>Username</label>
-        <input
+        <form
+          onSubmit={this.submitLogin}
+          style={{ display: "flex", flexDirection: "column" }}
+        >
+          <label>Username</label>
+          <input
             type="text"
             name="username"
             value={this.state.username}
@@ -76,8 +98,8 @@ class LogIn extends React.Component {
             placeholder="Enter a username"
             required
           />
-        <label>Password</label>
-        <input
+          <label>Password</label>
+          <input
             type="password"
             name="password"
             value={this.state.password}
@@ -85,11 +107,11 @@ class LogIn extends React.Component {
             placeholder="Enter a password"
             required
           />
-        <button type="submit">Login</button>
+          <button type="submit">Login</button>
         </form>
       </div>
     );
-  };
-};
+  }
+}
 
 export default LogIn;
