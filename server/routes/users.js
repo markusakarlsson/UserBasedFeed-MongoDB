@@ -25,6 +25,13 @@ router.route("/add").post(async (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+// Get username of logged in user
+router.route("/getusername").get((req, res) => {
+  User.findOne({ username: req.session.username }).then((user) =>
+    res.json(user.username)
+  );
+});
+
 // attempt to login a user
 router.route("/login").post(async (req, res) => {
   // Check if username & password is correct
@@ -35,12 +42,15 @@ router.route("/login").post(async (req, res) => {
   async function logInUser(user) {
     // Check if username & password is correct
     if (!user || !(await bcrypt.compare(req.body.password, user.password))) {
-      console.log("Wrong username or password")
+      console.log("Wrong username or password");
       return res.status(401).json("Wrong username or password");
     }
     // Check if user is already logged in
     if (req.session.username) {
-      console.log("Console.log in login at server:", "you're already logged in")
+      console.log(
+        "Console.log in login at server:",
+        "you're already logged in"
+      );
       return res.status(422).json("You are already logged in");
     }
 

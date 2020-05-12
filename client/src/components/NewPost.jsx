@@ -3,6 +3,7 @@ import axios from "axios";
 
 class NewPost extends React.Component {
   state = {
+    username: "",
     title: "",
     textContent: "",
   };
@@ -20,29 +21,46 @@ class NewPost extends React.Component {
   reset = () => {
     this.setState({
       title: "",
-      textContent: ""
-    })
-  }
+      textContent: "",
+    });
+  };
 
   submit = (event) => {
     event.preventDefault();
 
     const action = {
+      username: this.state.username,
       title: this.state.title,
       textContent: this.state.textContent,
     };
-    
+
+    fetch("http://localhost:3001/users/getusername", {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((data) => this.setState);
+
+    // axios
+    //   .get("http://localhost:3001/users/getusername")
+    //   .then((response) => {
+    //     this.setState({ username: response.data });
+    //   })
+    //   .catch(() => {
+    //     alert("error retrieving data");
+    //   });
+
     axios({
       url: "http://localhost:3001/posts/add",
       method: "POST",
       data: action,
     })
       .then(() => {
-        console.log("data sent to server")
+        console.log("data sent to server");
         this.reset();
       })
       .catch(() => {
-        console.log("error")
+        console.log("error");
       });
   };
 
