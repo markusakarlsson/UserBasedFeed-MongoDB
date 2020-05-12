@@ -1,5 +1,4 @@
 import React from "react";
-/* import axios from "axios"; */
 
 class LogIn extends React.Component {
   state = {
@@ -28,6 +27,14 @@ class LogIn extends React.Component {
     alert("You were successfully logged in!");
   };
 
+  failedLoggingIn = () => {
+    alert("You are not authorized!");
+  };
+
+  alreadyLoggedIn = () => {
+    alert("Ops, you're already logged in!");
+  };
+
   submitLogin = (event) => {
     event.preventDefault();
 
@@ -41,34 +48,20 @@ class LogIn extends React.Component {
       headers: { "Content-Type": "application/json" },
       credentials: "include",
       body: JSON.stringify(data),
-    })
-    .then(() => {
-      console.log("data sent to server", data)
-      this.resetInputFields();
-      this.successfullyLoggedIn();
-    })
-    .catch((error) => {
-      console.log("error logging in", error, data)
-      this.resetInputFields();
+    }).then((data) => {
+      console.log("Status: ", data.status);
+      if (data.status === 200) {
+        console.log("Logged in successfully");
+        this.successfullyLoggedIn();
+      } else if (data.status === 401) {
+        console.log("Error logging in");
+        this.failedLoggingIn();
+      } else if (data.status === 422) {
+        console.log("Already logged in");
+        this.alreadyLoggedIn();
+      }
     });
-      
-    /* axios({
-      url: "http://localhost:3001/users/login",
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      data: inputValues,
-      credentials: "include",
-      body: JSON.stringify(inputValues)
-    })
-    .then(() => {
-      console.log("data sent to server")
-      this.resetInputFields();
-      this.successfullyLoggedIn();
-    })
-    .catch(() => {
-      console.log("error logging in")
-      this.resetInputFields();
-    }); */
+    this.resetInputFields();
   };
 
   render() {
