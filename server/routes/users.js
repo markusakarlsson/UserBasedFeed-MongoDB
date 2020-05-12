@@ -28,7 +28,7 @@ router.route("/add").post(async (req, res) => {
 // Get username of logged in user
 router.route("/getusername").get((req, res) => {
   User.findOne({ username: req.session.username }).then((user) =>
-    res.json(user.username)
+    res.json(user)
   );
 });
 

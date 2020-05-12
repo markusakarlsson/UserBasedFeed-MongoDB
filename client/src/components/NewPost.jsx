@@ -3,7 +3,8 @@ import axios from "axios";
 
 class NewPost extends React.Component {
   state = {
-    username: "",
+    // userId: "",
+    // username: "",
     title: "",
     textContent: "",
   };
@@ -25,34 +26,35 @@ class NewPost extends React.Component {
     });
   };
 
+  // getUsername = () => {
+  //   fetch("http://localhost:3001/users/getusername", {
+  //     method: "GET",
+  //     credentials: "include",
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (!data) {
+  //         console.log("There's no user");
+  //       } else {
+  //         this.setState({ username: data.username, userId: data.userId });
+  //       }
+  //     });
+  // };
+
   submit = (event) => {
     event.preventDefault();
 
     const action = {
-      username: this.state.username,
+      // userId: this.state.userId,
+      // username: this.state.username,
       title: this.state.title,
       textContent: this.state.textContent,
     };
 
-    fetch("http://localhost:3001/users/getusername", {
-      method: "GET",
-      credentials: "include",
-    })
-      .then((response) => response.json())
-      .then((data) => this.setState);
-
-    // axios
-    //   .get("http://localhost:3001/users/getusername")
-    //   .then((response) => {
-    //     this.setState({ username: response.data });
-    //   })
-    //   .catch(() => {
-    //     alert("error retrieving data");
-    //   });
-
     axios({
       url: "http://localhost:3001/posts/add",
       method: "POST",
+      withCredentials: "true",
       data: action,
     })
       .then(() => {
@@ -63,6 +65,10 @@ class NewPost extends React.Component {
         console.log("error");
       });
   };
+
+  // componentDidUpdate() {
+  //   this.getUsername();
+  // }
 
   render() {
     return (
