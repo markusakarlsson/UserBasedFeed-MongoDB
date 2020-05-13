@@ -69,34 +69,33 @@ class LogIn extends React.Component {
       <div
         className="logInContainer"
         style={{
-          border: "1px solid black",
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
           alignItems: "center",
-          width: "20vW",
-          height: "20vh",
         }}
       >
         <form
           onSubmit={this.submitLogin}
-          style={{ display: "flex", flexDirection: "column" }}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: "25rem",
+          }}
         >
-          <label>Username</label>
           <input
             type="text"
             name="username"
             value={this.state.username}
             onChange={this.handelLoginChange}
-            placeholder="Enter a username"
+            placeholder="Username"
             required
           />
-          <label>Password</label>
           <input
             type="password"
             name="password"
             value={this.state.password}
             onChange={this.handelLoginChange}
-            placeholder="Enter a password"
+            placeholder="Password"
             required
           />
           <button type="submit">Login</button>
