@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Consumer } from "./context"
 
 class RegisterModal extends React.Component {
   state = {
@@ -53,6 +54,8 @@ class RegisterModal extends React.Component {
 
   render() {
     return (
+      <Consumer>
+        {({ closeDiv }) => (
       <div
         style={{
           background: "black",
@@ -82,9 +85,11 @@ class RegisterModal extends React.Component {
             placeholder="Enter a password"
             required
           />
-          <button type="submit">Register</button>
+          <button onClick={() => closeDiv()} type="submit">Register</button>
         </form>
       </div>
+        )}
+        </Consumer>
     );
   }
 }
