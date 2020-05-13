@@ -8,19 +8,8 @@ POST http://localhost:3001/users/add
 Content-type: application/json
 
 {
-    "username": "Camilla",
+    "username": "Kajsa",
     "password": "123"
-}
-
-###
-
-// Add/create a user
-POST http://localhost:3001/users/add
-Content-type: application/json
-
-{
-    "username": "Markan",
-    "password": "markan123"
 }
 
 ###
@@ -30,6 +19,6 @@ POST http://localhost:3001/users/login
 Content-Type: application/json
 
 {
-    "username": "Camilla",
+    "username": "Evelina",
     "password": "123"
 }

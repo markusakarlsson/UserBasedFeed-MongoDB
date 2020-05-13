@@ -12,23 +12,25 @@ class Header extends React.Component {
   render() {
     return (
       <>
-        <header>
-          <h1>POST FEED APP</h1>
+        <header style={{ padding: "1rem", backgroundColor: "#61082b" }}>
+          <h1 style={{ margin: "0 0 1rem 0", color: "white" }}>
+            POST FEED APP
+          </h1>
           <div
             style={{
               display: "flex",
-              justifyContent: "space-around",
-              marginBottom: "1rem",
+              justifyContent: "flex-end",
             }}
           >
+            <LogIn />
             <button
+              className="myButton"
               onClick={() => {
                 this.handleRegisterClick();
               }}
             >
-              Register
+              New user
             </button>
-            <LogIn />
           </div>
         </header>
 
