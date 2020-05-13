@@ -9,10 +9,15 @@ router.route("/").get((req, res) => {
 });
 
 router.route("/getownposts").get((req, res) => {
-  Post.find({ userId: req.session.userId }, function (err, posts) {
-    res.json(posts);
-  });
+  Post.find({ userId: req.session.userId })
+  .then((posts) => res.json(posts))
+  .catch((err) => res.status(400).json("Error: " + err))
 });
+// router.route("/getownposts").get((req, res) => {
+//   Post.find({ userId: req.session.userId }, function (err, posts) {
+//     res.json(posts);
+//   });
+// });
 
 router.route("/add").post((req, res) => {
   if (!req.session.username) {
