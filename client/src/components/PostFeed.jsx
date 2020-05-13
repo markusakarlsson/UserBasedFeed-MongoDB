@@ -36,7 +36,7 @@ class PostFeed extends React.Component {
         }}
       >
         <h3 style={{ textAlign: "left", margin: "0.5rem" }}>
-          <i class="fas fa-user-circle"></i>
+          <i className="fas fa-user-circle"></i>
           {post.username}
         </h3>
         <h4 style={{ margin: "0" }}>{post.title}</h4>
