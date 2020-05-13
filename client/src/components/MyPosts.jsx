@@ -1,9 +1,9 @@
 import React from "react";
-/* import axios from "axios"; */
+import axios from "axios";
 
 class MyPosts extends React.Component {
 
-  /* state = {
+  state = {
     posts: []
   };
 
@@ -34,7 +34,7 @@ class MyPosts extends React.Component {
           <p>TextContent: {post.textContent}</p>
         </div>
     ));
-  }; */
+  };
 
 
   render() {
@@ -51,7 +51,7 @@ class MyPosts extends React.Component {
         }}
       >
         <h3>My Posts</h3> 
-       {/*  {this.displayMyPosts(this.state.posts)} */}
+        {this.displayMyPosts(this.state.posts)}
       </div>
     );
   };

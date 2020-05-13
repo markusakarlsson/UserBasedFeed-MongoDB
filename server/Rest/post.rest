@@ -4,8 +4,8 @@ POST http://localhost:3001/posts/add
 Content-Type: application/json
 
 {
-    "title": "Camillas inlägg",
-    "textContent": "En post från Camilla där hon skriver om sin dag."
+    "title": "Mackan här",
+    "textContent": "Tjena"
 }
 
 ###
