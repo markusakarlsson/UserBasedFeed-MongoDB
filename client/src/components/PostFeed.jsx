@@ -10,6 +10,8 @@ class PostFeed extends React.Component {
     this.getAllPosts();
   };
 
+ 
+
   getAllPosts = () => {
     axios
       .get("http://localhost:3001/posts/")
