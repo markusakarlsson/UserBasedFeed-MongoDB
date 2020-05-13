@@ -102,6 +102,7 @@ class Header extends React.Component {
                 required
               />
               <button type="submit">Register</button>
+              <button onClick={this.toggleModal}>Close</button>
             </form>
           </div>
         </Modal>
