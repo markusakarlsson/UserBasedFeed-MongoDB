@@ -55,7 +55,7 @@ class RegisterModal extends React.Component {
   render() {
     return (
       <Consumer>
-        {({ closeDiv, isOpen }) => (
+        {({ }) => (
       <div
         style={{
           background: "black",
@@ -88,8 +88,7 @@ class RegisterModal extends React.Component {
             placeholder="Enter a password"
             required
           />
-          {isOpen}
-          <button onClick={() => closeDiv()} type="submit">Register</button>
+          <button onClick={() => this.props.closeRegisterModal(this.state)} type="submit">Register</button>
         </form>
       </div>
         )}

@@ -14,10 +14,9 @@ class MainPage extends React.Component {
         this.setState({ isOpen: !this.state.isOpen })
     }
 
- /*    closeRegisterModal = () => {
+    closeRegisterModal = () => {
         this.setState({ isOpen: false })
     }
- */
 
   render() {
     return (
@@ -27,7 +26,7 @@ class MainPage extends React.Component {
         </header>
         {this.state.isOpen && (
             <div style={{ position: "absolute", left: "32vw", top: "30vh" }}>
-          <RegisterModal />
+          <RegisterModal closeRegisterModal={this.closeRegisterModal(this.state)} />
         </div>
         )}
         <button 

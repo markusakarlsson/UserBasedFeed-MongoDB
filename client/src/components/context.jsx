@@ -33,7 +33,6 @@ export class Provider extends React.Component {
     };
 
     render() {
-      const { isOpen } = this.state
       const { getAllPosts } = this
         return (
           <Context.Provider value={{

@@ -8,6 +8,7 @@ class NewPost extends React.Component {
     textContent: "",
   };
 
+
   handleChange = (event) => {
     const target = event.target;
     const name = target.name;
@@ -46,6 +47,7 @@ class NewPost extends React.Component {
       .catch(() => {
         console.log("error");
       });
+      this.getAllPosts()
   };
 
   render() {
@@ -77,7 +79,7 @@ class NewPost extends React.Component {
             rows="4"
             cols="50"
           ></textarea>
-          <button onClick={() => getAllPosts()} type="submit">Send post</button>
+          <button type="submit">Send post</button>
         </form>
       </div>
         )}
