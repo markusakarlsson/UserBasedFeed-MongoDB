@@ -58,7 +58,6 @@ class Header extends React.Component {
     this.setState({
       showModal: !this.state.showModal,
     });
-    console.log("modal");
   };
 
   get modal() {
