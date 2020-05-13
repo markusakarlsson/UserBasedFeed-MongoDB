@@ -1,39 +1,50 @@
-import React, { createContext } from "react";
-
-const defaultState = {
-    isOpen: false,
-    closeDiv: () => {}
-  };
+import React from "react";
+import axios from "axios";
 
 
-const Context = createContext(defaultState)
+const Context = React.createContext()
 
 
-export class Provider extends React.Component {
-    constructor(props) {
-        super(props);
-    
-    this.state = {
-        isOpen: false,
-        closeDiv: this.closeDiv,
+export class Provider extends React.Component { 
+   state = {
+        isOpen: false
     }
-}
+
 
     closeDiv = () => {
-        this.setState({
+       this.setState({
             isOpen: false
         })
-        console.log("hejsan")
+      console.log("hejsan")
     }
 
+
+    getAllPosts = () => {
+      axios
+        .get("http://localhost:3001/posts/")
+        .then((response) => {
+          this.setState({ posts: response.data });
+          console.log("In function this.state:", this.state);
+        })
+        .catch(() => {
+          alert("error retrieving data");
+        });
+        console.log("hej från context")
+    };
+
     render() {
+      const { isOpen } = this.state
+      const { getAllPosts } = this
         return (
-          <Context.Provider value={this.state}>
+          <Context.Provider value={{
+            getAllPosts
+          }}>
             {this.props.children}
           </Context.Provider>
         );
       }
 }
 
+export default Context;
 
-export const Consumer = Context.Consumer;
+export const Consumer = Context.Consumer; 

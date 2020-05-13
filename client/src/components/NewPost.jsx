@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Consumer } from "./context";
 
 class NewPost extends React.Component {
   state = {
@@ -49,6 +50,8 @@ class NewPost extends React.Component {
 
   render() {
     return (
+      <Consumer>
+        {({ getAllPosts }) => (
       <div
         style={{
           border: "1px solid black",
@@ -74,9 +77,11 @@ class NewPost extends React.Component {
             rows="4"
             cols="50"
           ></textarea>
-          <button type="submit">Send post</button>
+          <button onClick={() => getAllPosts()} type="submit">Send post</button>
         </form>
       </div>
+        )}
+      </Consumer>
     );
   }
 }
