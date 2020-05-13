@@ -88,7 +88,7 @@ class RegisterModal extends React.Component {
             placeholder="Enter a password"
             required
           />
-          <button onClick={() => this.props.closeRegisterModal(this.state)} type="submit">Register</button>
+          <button type="submit">Register</button>
         </form>
       </div>
         )}
