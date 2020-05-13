@@ -20,9 +20,9 @@ class NewPost extends React.Component {
   reset = () => {
     this.setState({
       title: "",
-      textContent: ""
-    })
-  }
+      textContent: "",
+    });
+  };
 
   submit = (event) => {
     event.preventDefault();
@@ -31,18 +31,19 @@ class NewPost extends React.Component {
       title: this.state.title,
       textContent: this.state.textContent,
     };
-    
+
     axios({
       url: "http://localhost:3001/posts/add",
       method: "POST",
+      withCredentials: "true",
       data: action,
     })
       .then(() => {
-        console.log("data sent to server")
+        console.log("data sent to server");
         this.reset();
       })
       .catch(() => {
-        console.log("error")
+        console.log("error");
       });
   };
 
