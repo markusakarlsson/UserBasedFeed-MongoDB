@@ -33,9 +33,3 @@ Content-Type: application/json
     "username": "Camilla",
     "password": "123"
 }
-
-###
-
-// GET username of logged in user
-
-GET http://localhost:3001/users/getusername

@@ -25,13 +25,6 @@ router.route("/add").post(async (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-// Get username of logged in user
-router.route("/getusername").get((req, res) => {
-  User.findOne({ username: req.session.username }).then((user) =>
-    res.json(user)
-  );
-});
-
 // attempt to login a user
 router.route("/login").post(async (req, res) => {
   // Check if username & password is correct
