@@ -1,3 +1,37 @@
 .App {
   text-align: center;
 }
+
+.myButton {
+  background: linear-gradient(to bottom, #d8115a 5%, #a60d48 100%);
+  background-color: #d8115a;
+  border-radius: 15px;
+  border: 1px solid #a60d48;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 12px;
+  padding: 7px 15px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffffff;
+}
+.myButton:hover {
+  background: linear-gradient(to bottom, #a60d48 5%, #d8115a 100%);
+  background-color: #a60d48;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+input {
+  padding-left: 0.5rem;
+  border-radius: 1rem;
+  border: none;
+}
+
+i {
+  color: #61082b;
+  margin-right: 0.2rem;
+}
