@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
+import { Consumer } from "./context";
 
 class NewPost extends React.Component {
   state = {
     title: "",
     textContent: "",
   };
+
 
   handleChange = (event) => {
     const target = event.target;
@@ -45,10 +47,13 @@ class NewPost extends React.Component {
       .catch(() => {
         console.log("error");
       });
+      this.getAllPosts()
   };
 
   render() {
     return (
+      <Consumer>
+        {({ getAllPosts }) => (
       <div
         style={{
           border: "1px solid black",
@@ -77,6 +82,8 @@ class NewPost extends React.Component {
           <button type="submit">Send post</button>
         </form>
       </div>
+        )}
+      </Consumer>
     );
   }
 }
