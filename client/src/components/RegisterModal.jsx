@@ -21,13 +21,13 @@ class RegisterModal extends React.Component {
   resetInputFields = () => {
     this.setState({
       username: "",
-      password: ""
-    })
-  }
+      password: "",
+    });
+  };
 
   successfullyCreatedUser = () => {
-    alert("User was successfully created!")
-  }
+    alert("User was successfully created!");
+  };
 
   submitRegister = (event) => {
     event.preventDefault();
@@ -42,14 +42,14 @@ class RegisterModal extends React.Component {
       method: "POST",
       data: inputValues,
     })
-    .then(() => {
-      console.log("data sent to server")
-      this.resetInputFields();
-      this.successfullyCreatedUser();
-    })
-    .catch(() => {
-      console.log("error")
-    });
+      .then(() => {
+        console.log("data sent to server");
+        this.resetInputFields();
+        this.successfullyCreatedUser();
+      })
+      .catch(() => {
+        alert("Username already taken, choose another one.");
+      });
   };
 
   render() {
@@ -66,7 +66,10 @@ class RegisterModal extends React.Component {
         }}
       >
         <h1>Register</h1>
-        <form onSubmit={this.submitRegister} style={{ display: "flex", flexDirection: "column" }}>
+        <form
+          onSubmit={this.submitRegister}
+          style={{ display: "flex", flexDirection: "column" }}
+        >
           <label>Username</label>
           <input
             type="text"
