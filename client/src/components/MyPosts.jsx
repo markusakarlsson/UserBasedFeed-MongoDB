@@ -2,9 +2,8 @@ import React from "react";
 import axios from "axios";
 
 class MyPosts extends React.Component {
-
   state = {
-    posts: []
+    posts: [],
   };
 
   componentDidMount = () => {
@@ -12,8 +11,11 @@ class MyPosts extends React.Component {
   };
 
   getMyPosts = () => {
-    axios
-      .get("http://localhost:3001/posts/getownposts")
+    axios({
+      url: "http://localhost:3001/posts/getownposts",
+      method: "GET",
+      withCredentials: "true",
+    })
       .then((response) => {
         this.setState({ posts: response.data });
         console.log("In function this.state:", this.state);
@@ -24,18 +26,16 @@ class MyPosts extends React.Component {
   };
 
   displayMyPosts = (posts) => {
-    
     if (!posts.length) return null;
-    
+
     return posts.map((post, index) => (
-        <div key={index} style={{border: "1px solid black", padding: "0.5rem"}}>
-          <h3>Username: {post.username}</h3>
-          <h4>Title: {post.title}</h4>
-          <p>TextContent: {post.textContent}</p>
-        </div>
+      <div key={index} style={{ border: "1px solid black", padding: "0.5rem" }}>
+        <h3>Username: {post.username}</h3>
+        <h4>Title: {post.title}</h4>
+        <p>TextContent: {post.textContent}</p>
+      </div>
     ));
   };
-
 
   render() {
     return (
@@ -50,11 +50,11 @@ class MyPosts extends React.Component {
           height: "40vh",
         }}
       >
-        <h3>My Posts</h3> 
+        <h3>My Posts</h3>
         {this.displayMyPosts(this.state.posts)}
       </div>
     );
-  };
-};
+  }
+}
 
 export default MyPosts;
