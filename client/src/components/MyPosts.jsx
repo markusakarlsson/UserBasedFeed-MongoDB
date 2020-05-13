@@ -25,14 +25,42 @@ class MyPosts extends React.Component {
       });
   };
 
+  deletePost = (event) => {
+    let postToDelete = event.target.parentElement.dataset.id;
+    console.log("POST TO DELETE: ", postToDelete);
+
+    axios({
+      url: "http://localhost:3001/posts/" + postToDelete,
+      method: "DELETE",
+      withCredentials: "true",
+    })
+      .then(() => {
+        this.displayMyPosts(this.state.posts);
+      })
+      .catch(() => {
+        alert("error deleting data");
+      });
+  };
+
   displayMyPosts = (posts) => {
     if (!posts.length) return null;
+    console.log("POST IN DISPLAYMYPOSTS: ", posts);
 
     return posts.map((post, index) => (
-      <div key={index} style={{ border: "1px solid black", padding: "0.5rem" }}>
+      <div
+        data-id={post._id}
+        key={index}
+        style={{ border: "1px solid black", padding: "0.5rem" }}
+      >
         <h3>Username: {post.username}</h3>
         <h4>Title: {post.title}</h4>
         <p>TextContent: {post.textContent}</p>
+        <i
+          className="fas fa-trash-alt"
+          onClick={(event) => {
+            this.deletePost(event);
+          }}
+        ></i>
       </div>
     ));
   };
