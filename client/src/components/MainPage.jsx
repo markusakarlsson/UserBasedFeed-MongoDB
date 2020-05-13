@@ -5,12 +5,6 @@ import Header from "./Header";
 
 class MainPage extends React.Component {
 
-
-  /*    closeRegisterModal = () => {
-        this.setState({ isOpen: false })
-    }
-    */
-
   render() {
     return (
       <div className="MainContainer">

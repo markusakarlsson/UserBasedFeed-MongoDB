@@ -7,16 +7,8 @@ const Context = React.createContext()
 
 export class Provider extends React.Component { 
    state = {
-        isOpen: false
     }
 
-
-    closeDiv = () => {
-       this.setState({
-            isOpen: false
-        })
-      console.log("hejsan")
-    }
 
 
     getAllPosts = () => {

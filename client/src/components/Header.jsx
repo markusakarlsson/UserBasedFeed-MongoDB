@@ -75,16 +75,26 @@ class Header extends React.Component {
               color: "white",
               height: "20rem",
               width: "30rem",
-              padding: "1rem",
+              borderRadius: "1rem",
+              backgroundColor: "#61082b",
+              padding: "2rem",
+              textAlign: "center",
             }}
           >
+            <button style={{position: "absolute", left: "85%", top: "1rem"}} className="myButton" onClick={this.toggleModal}>Close</button>
             <h1>Register</h1>
             <form
               onSubmit={this.submitRegister}
-              style={{ display: "flex", flexDirection: "column" }}
+              style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
             >
-              <label>Username</label>
+              <label style={{margin: "1rem"}}>Username</label>
               <input
+                style={{
+                  padding: "0.5rem",
+                  borderRadius: "1rem",
+                  border: "none",
+                  width: "30%",
+                }}
                 type="text"
                 name="username"
                 value={this.state.username}
@@ -92,8 +102,14 @@ class Header extends React.Component {
                 placeholder="Enter a username"
                 required
               />
-              <label>Password</label>
+              <label style={{margin: "1rem"}}>Password</label>
               <input
+                style={{
+                  padding: "0.5rem",
+                  borderRadius: "1rem",
+                  border: "none",
+                  width: "30%",
+                }}
                 type="password"
                 name="password"
                 value={this.state.password}
@@ -101,8 +117,9 @@ class Header extends React.Component {
                 placeholder="Enter a password"
                 required
               />
-              <button type="submit">Register</button>
-              <button onClick={this.toggleModal}>Close</button>
+              <div>
+              <button style={{margin: "2rem"}} className="myButton" type="submit">Register</button>
+              </div>
             </form>
           </div>
         </Modal>
