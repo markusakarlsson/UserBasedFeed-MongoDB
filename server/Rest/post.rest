@@ -4,8 +4,8 @@ POST http://localhost:3001/posts/add
 Content-Type: application/json
 
 {
-    "title": "Mackan här",
-    "textContent": "Tjena"
+    "title": "Inställd sommar?",
+    "textContent": "Blir väl till att sitta hemma och rulla tummarna hela sommaren nu när alla planer ställs in. :("
 }
 
 ###

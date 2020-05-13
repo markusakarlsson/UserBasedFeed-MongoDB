@@ -3,7 +3,7 @@ import axios from "axios";
 
 class PostFeed extends React.Component {
   state = {
-    posts: []
+    posts: [],
   };
 
   componentDidMount = () => {
@@ -22,27 +22,40 @@ class PostFeed extends React.Component {
       });
   };
 
-
   displayPosts = (posts) => {
-    
     if (!posts.length) return null;
-    
+
     return posts.map((post, index) => (
-        <div key={index} style={{border: "1px solid black", padding: "0.5rem"}}>
-          <h3>Username: {post.username}</h3>
-          <h4>Title: {post.title}</h4>
-          <p>TextContent: {post.textContent}</p>
-        </div>
+      <div
+        key={index}
+        style={{
+          borderRadius: "1rem",
+          backgroundColor: "white",
+          margin: "0 3rem 1rem 3rem",
+          padding: "0.5rem",
+        }}
+      >
+        <h3 style={{ textAlign: "left", margin: "0.5rem" }}>
+          <i class="fas fa-user-circle"></i>
+          {post.username}
+        </h3>
+        <h4 style={{ margin: "0" }}>{post.title}</h4>
+        <p>{post.textContent}</p>
+      </div>
     ));
   };
 
-  render() { 
+  render() {
     return (
       <div
-      className="postFeedContainer"
-        style={{ border: "1px solid black", height: "100vh", width: "50vw" }}
+        className="postFeedContainer"
+        style={{
+          height: "100vh",
+          width: "50vw",
+          backgroundColor: "#d8115a",
+        }}
       >
-        <h2>Post feed</h2>
+        <h2 style={{ color: "white" }}>Post feed</h2>
         {this.displayPosts(this.state.posts)}
       </div>
     );

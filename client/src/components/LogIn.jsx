@@ -79,7 +79,7 @@ class LogIn extends React.Component {
           style={{
             display: "flex",
             justifyContent: "space-around",
-            width: "25rem",
+            width: "28rem",
           }}
         >
           <input
@@ -98,7 +98,9 @@ class LogIn extends React.Component {
             placeholder="Password"
             required
           />
-          <button type="submit">Login</button>
+          <button className="myButton" type="submit">
+            Login
+          </button>
         </form>
       </div>
     );
