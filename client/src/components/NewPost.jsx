@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { Consumer } from "./context";
 import Context from "./context";
 
 class NewPost extends React.Component {
@@ -57,8 +56,6 @@ class NewPost extends React.Component {
 
   render() {
     return (
-      <Consumer>
-        {() => (
           <div
             style={{
               marginTop: "3rem",
@@ -80,6 +77,8 @@ class NewPost extends React.Component {
               />
               <textarea
                 style={{
+                  margin: "1rem 0 1rem 0",
+                  border: "none",
                   fontFamily: "Arial",
                   resize: "none",
                   borderRadius: "1rem",
@@ -98,8 +97,6 @@ class NewPost extends React.Component {
               </button>
             </form>
           </div>
-        )}
-      </Consumer>
     );
   }
 }
