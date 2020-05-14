@@ -10,8 +10,6 @@ class PostFeed extends React.Component {
     this.getAllPosts();
   };
 
- 
-
   getAllPosts = () => {
     axios
       .get("http://localhost:3001/posts/")
@@ -52,7 +50,6 @@ class PostFeed extends React.Component {
       <div
         className="postFeedContainer"
         style={{
-          height: "100vh",
           width: "50vw",
           backgroundColor: "#d8115a",
         }}

@@ -7,7 +7,6 @@ class UserPage extends React.Component {
     return (
       <div
         style={{
-          border: "1px solid black",
           height: "100vh",
           width: "50vw",
           display: "flex",
@@ -15,7 +14,6 @@ class UserPage extends React.Component {
           flexDirection: "column",
         }}
       >
-        <h2>User page</h2>
         <NewPost />
         <MyPosts />
       </div>
