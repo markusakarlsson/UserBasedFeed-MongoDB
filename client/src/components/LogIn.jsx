@@ -59,6 +59,7 @@ class LogIn extends React.Component {
       console.log("Status: ", data.status);
       if (data.status === 200) {
         console.log("Logged in successfully");
+        this.context.isLoggedIn();
         this.successfullyLoggedIn();
         this.context.getMyPosts();
       } else if (data.status === 401) {

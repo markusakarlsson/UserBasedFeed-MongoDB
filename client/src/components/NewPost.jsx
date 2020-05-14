@@ -58,7 +58,7 @@ class NewPost extends React.Component {
   render() {
     return (
       <Consumer>
-        {({}) => (
+        {() => (
           <div
             style={{
               marginTop: "3rem",

@@ -11,7 +11,7 @@ export class Provider extends React.Component {
       posts: [],
       myPosts: [],
       showModal: false,
-      loggedInUser: undefined,
+      /* loggedInUser: undefined, */
       postIdToUpdate: "",
       postTitleToUpdate: "",
       postTextToUpdate: "",
@@ -24,8 +24,28 @@ export class Provider extends React.Component {
       deletePost: this.deletePost,
       submitUpdate: this.submitUpdate,
       displayMyPosts: this.displayMyPosts,
+      loggedInUser: false,
+      isLoggedIn: this.isLoggedIn,
     };
   }
+
+  isLoggedIn = () => {
+    axios({
+      url: "http://localhost:3001/users/authenticate",
+      method: "GET",
+      withCredentials: "true",
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          this.setState({ loggedInUser: true });
+          console.log("from context", this.state.loggedInUser)
+        }
+      })
+      .catch(() => {
+        alert("error retrieving data");
+      });
+      console.log("In main page this.state:", this.state);
+    }
 
   // Functions from PostFeed
 
@@ -34,18 +54,15 @@ export class Provider extends React.Component {
       .get("http://localhost:3001/posts/")
       .then((response) => {
         this.setState({ posts: response.data });
-        console.log("In function this.state:", this.state);
       })
       .catch(() => {
         alert("error retrieving data");
       });
-    console.log("hej från context");
   };
 
   displayPosts = () => {
     if (!this.state.posts.length) return null;
 
-    console.log("hej från display posts i contexten");
     return this.state.posts.map((post, index) => (
       <div
         key={index}
@@ -82,7 +99,6 @@ export class Provider extends React.Component {
     })
       .then((response) => {
         this.setState({ myPosts: response.data });
-        console.log("In function this.state:", this.state);
       })
       .catch(() => {
         alert("error retrieving data");
@@ -160,7 +176,7 @@ export class Provider extends React.Component {
 
   //DISPLAY
 
-  displayMyPosts = (myPosts) => {
+  displayMyPosts = () => {
     if (!this.state.myPosts.length) return null;
     console.log("POST IN DISPLAYMYPOSTS: ", this.state.myPosts);
 
