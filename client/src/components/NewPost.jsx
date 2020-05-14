@@ -1,8 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { Consumer } from "./context";
+import Context from "./context";
 
 class NewPost extends React.Component {
+  static contextType = Context;
+
+
   state = {
     title: "",
     textContent: "",
@@ -42,11 +46,14 @@ class NewPost extends React.Component {
       .then(() => {
         console.log("data sent to server");
         this.reset();
+        this.context.getAllPosts();
+        this.context.getMyPosts();
       })
       .catch(() => {
         console.log("error");
       });
   };
+
 
   render() {
     return (
