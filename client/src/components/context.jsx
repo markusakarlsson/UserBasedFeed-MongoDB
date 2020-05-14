@@ -11,19 +11,6 @@ export class Provider extends React.Component {
 
 
 
-    getAllPosts = () => {
-      axios
-        .get("http://localhost:3001/posts/")
-        .then((response) => {
-          this.setState({ posts: response.data });
-          console.log("In function this.state:", this.state);
-        })
-        .catch(() => {
-          alert("error retrieving data");
-        });
-        console.log("hej från context")
-    };
-
     render() {
       const { getAllPosts } = this
         return (

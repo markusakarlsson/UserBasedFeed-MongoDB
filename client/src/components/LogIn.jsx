@@ -35,8 +35,10 @@ class LogIn extends React.Component {
     alert("Ops, you're already logged in!");
   };
 
+
   submitLogin = (event) => {
     event.preventDefault();
+
 
     const data = {
       username: this.state.username,
@@ -49,6 +51,7 @@ class LogIn extends React.Component {
       credentials: "include",
       body: JSON.stringify(data),
     }).then((data) => {
+      console.log(data)
       console.log("Status: ", data.status);
       if (data.status === 200) {
         console.log("Logged in successfully");
@@ -64,15 +67,16 @@ class LogIn extends React.Component {
     this.resetInputFields();
   };
 
+
   render() {
     return (
       <div
-        className="logInContainer"
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-        }}
+      className="logInContainer"
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+      }}
       >
         <form
           onSubmit={this.submitLogin}
