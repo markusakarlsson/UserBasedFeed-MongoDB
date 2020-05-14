@@ -47,13 +47,12 @@ class NewPost extends React.Component {
       .catch(() => {
         console.log("error");
       });
-      this.getAllPosts()
   };
 
   render() {
     return (
       <Consumer>
-        {({ getAllPosts }) => (
+        {({}) => (
       <div
         style={{
           border: "1px solid black",
