@@ -188,6 +188,7 @@ export class Provider extends React.Component {
           color: "white",
           width: "85%",
           marginBottom: "1rem",
+          paddingBottom: "1rem"
         }}
       >
         <h3 style={{ textAlign: "left", margin: "0.5rem" }}>

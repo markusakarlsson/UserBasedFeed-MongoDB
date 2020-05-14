@@ -72,6 +72,7 @@ class NewPost extends React.Component {
                 value={this.state.title}
                 onChange={this.handleChange}
                 placeholder="Title"
+                required
               />
               <textarea
                 style={{
@@ -89,6 +90,7 @@ class NewPost extends React.Component {
                 id="newpost"
                 rows="4"
                 cols="50"
+                required
               ></textarea>
               <button className="myButton" type="submit">
                 Send post
