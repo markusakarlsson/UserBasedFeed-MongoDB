@@ -165,6 +165,48 @@ export class Provider extends React.Component {
         data-title={post.title}
         data-text={post.textContent}
         key={index}
+        style={{
+          backgroundColor: "#d8115a",
+          borderRadius: "1rem",
+          padding: "0.5rem",
+          color: "white",
+          width: "85%",
+          marginBottom: "1rem",
+        }}
+      >
+        <h3 style={{ textAlign: "left", margin: "0.5rem" }}>
+          <i className="fas fa-user-circle"></i>
+          {post.username}
+        </h3>
+        <h4 style={{ margin: "0" }}>{post.title}</h4>
+        <p>{post.textContent}</p>
+        <i
+          className="fas fa-trash-alt"
+          onClick={(event) => {
+            this.deletePost(event);
+          }}
+        ></i>
+        <i
+          className="fas fa-edit"
+          onClick={(event) => {
+            this.updatePost(event);
+            this.toggleModal();
+          }}
+        ></i>
+      </div>
+    ));
+  };
+
+  /* displayMyPosts = (myPosts) => {
+    if (!this.state.myPosts.length) return null;
+    console.log("POST IN DISPLAYMYPOSTS: ", this.state.myPosts);
+
+    return this.state.myPosts.map((post, index) => (
+      <div
+        data-id={post._id}
+        data-title={post.title}
+        data-text={post.textContent}
+        key={index}
         style={{ border: "1px solid black", padding: "0.5rem" }}
       >
         <h3>{post.username}</h3>
@@ -185,7 +227,7 @@ export class Provider extends React.Component {
         ></i>
       </div>
     ));
-  };
+  }; */
 
   render() {
     return (
