@@ -8,7 +8,6 @@ class NewPost extends React.Component {
     textContent: "",
   };
 
-
   handleChange = (event) => {
     const target = event.target;
     const name = target.name;
@@ -53,34 +52,37 @@ class NewPost extends React.Component {
     return (
       <Consumer>
         {({}) => (
-      <div
-        style={{
-          border: "1px solid black",
-          height: "30vh",
-          width: "25vw",
-        }}
-      >
-        <h3>New post</h3>
-        <form onSubmit={this.submit}>
-          <input
-            type="text"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleChange}
-            placeholder="Title"
-          />
-          <textarea
-            placeholder="Write your post here..."
-            name="textContent"
-            value={this.state.textContent}
-            onChange={this.handleChange}
-            id="newpost"
-            rows="4"
-            cols="50"
-          ></textarea>
-          <button type="submit">Send post</button>
-        </form>
-      </div>
+          <div
+            style={{
+              border: "1px solid black",
+              height: "30vh",
+              width: "25vw",
+            }}
+          >
+            <h3>New post</h3>
+            <form onSubmit={this.submit}>
+              <input
+                type="text"
+                name="title"
+                value={this.state.title}
+                onChange={this.handleChange}
+                placeholder="Title"
+              />
+              <textarea
+                style={{ fontFamily: "Arial" }}
+                placeholder="Write your post here..."
+                name="textContent"
+                value={this.state.textContent}
+                onChange={this.handleChange}
+                id="newpost"
+                rows="4"
+                cols="50"
+              ></textarea>
+              <button className="myButton" type="submit">
+                Send post
+              </button>
+            </form>
+          </div>
         )}
       </Consumer>
     );
