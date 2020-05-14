@@ -5,7 +5,7 @@ import Context from "./context";
 
 class NewPost extends React.Component {
   static contextType = Context;
- 
+
 
   state = {
     title: "",

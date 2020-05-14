@@ -1,6 +1,10 @@
 import React from "react";
+import MyPostsContext from "./contextMyPosts";
 
 class LogIn extends React.Component {
+  static contextType = MyPostsContext;
+
+
   state = {
     username: "",
     password: "",
@@ -56,6 +60,7 @@ class LogIn extends React.Component {
       if (data.status === 200) {
         console.log("Logged in successfully");
         this.successfullyLoggedIn();
+        this.context.getMyPosts();
       } else if (data.status === 401) {
         console.log("Error logging in");
         this.failedLoggingIn();

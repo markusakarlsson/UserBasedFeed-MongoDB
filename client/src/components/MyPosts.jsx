@@ -1,8 +1,11 @@
 import React from "react";
 import axios from "axios";
 import Modal from "./Modal";
+import MyPostsContext, { MyPostsConsumer } from "./contextMyPosts";
 
 class MyPosts extends React.Component {
+  static contextType = MyPostsContext;
+
   state = {
     posts: [],
     showModal: false,
@@ -11,11 +14,11 @@ class MyPosts extends React.Component {
     postTextToUpdate: "",
   };
 
-  componentDidMount = () => {
-    this.getMyPosts();
-  };
+  componentWillUpdate = () => {
+   this.context.getMyPosts(); 
+  }; 
 
-  toggleModal = () => {
+  /* toggleModal = () => {
     this.setState({
       showModal: !this.state.showModal,
     });
@@ -126,7 +129,7 @@ class MyPosts extends React.Component {
         ></i>
       </div>
     ));
-  };
+  }; */
 
   get modal() {
     if (this.state.showModal) {
@@ -209,23 +212,28 @@ class MyPosts extends React.Component {
 
   render() {
     return (
-      <>
-        <div
-          className="myPostsContainer"
-          style={{
-            border: "1px solid black",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            width: "100%",
-            height: "40vh",
-          }}
-        >
-          <h3>My Posts</h3>
-          {this.displayMyPosts(this.state.posts)}
-        </div>
-        {this.modal}
-      </>
+      <MyPostsConsumer>
+        {({}) => (
+          <>
+            <div
+              className="myPostsContainer"
+              style={{
+                border: "1px solid black",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "100%",
+                height: "40vh",
+              }}
+            >
+              <h3>My Posts</h3>
+              {/*  {this.displayMyPosts(this.state.posts)} */}
+               {this.context.displayMyPosts()}
+            </div>
+            {this.modal}
+          </>
+        )}
+      </MyPostsConsumer>
     );
   }
 }

@@ -12,9 +12,9 @@ class PostFeed extends React.Component {
   componentDidMount = () => {
     let value = this.context
     value.getAllPosts(); 
-    /* this.getAllPosts(); */
+    /* this.getAllPosts();*/
 
-  };
+  }; 
 
  
 

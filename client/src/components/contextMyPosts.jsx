@@ -1,15 +1,13 @@
 import React from "react";
 import axios from "axios";
 
-const Context = React.createContext();
+const MyPostsContext = React.createContext();
 
-export class Provider extends React.Component {
+export class MyPostsProvider extends React.Component {
   constructor() {
     super();
     this.state = {
       posts: [],
-      getAllPosts: this.getAllPosts,
-      displayPosts: this.displayPosts,
       toggleModal: this.toggleModal,
       getMyPosts: this.getMyPosts,
       updatePost: this.updatePost,
@@ -19,45 +17,6 @@ export class Provider extends React.Component {
       displayMyPosts: this.displayMyPosts,
     };
   }
-
-  // Functions from PostFeed
-
-  getAllPosts = () => {
-    axios
-      .get("http://localhost:3001/posts/")
-      .then((response) => {
-        this.setState({ posts: response.data });
-        console.log("In function this.state:", this.state);
-      })
-      .catch(() => {
-        alert("error retrieving data");
-      });
-    console.log("hej från context");
-  };
-
-  displayPosts = () => {
-    if (!this.state.posts.length) return null;
-
-    console.log("hej från display posts i contexten");
-    return this.state.posts.map((post, index) => (
-      <div
-        key={index}
-        style={{
-          borderRadius: "1rem",
-          backgroundColor: "white",
-          margin: "0 3rem 1rem 3rem",
-          padding: "0.5rem",
-        }}
-      >
-        <h3 style={{ textAlign: "left", margin: "0.5rem" }}>
-          <i className="fas fa-user-circle"></i>
-          {post.username}
-        </h3>
-        <h4 style={{ margin: "0" }}>{post.title}</h4>
-        <p>{post.textContent}</p>
-      </div>
-    ));
-  };
 
   // Function from MyPosts
 
@@ -80,6 +39,7 @@ export class Provider extends React.Component {
       .catch(() => {
         alert("error retrieving data");
       });
+    console.log("hej från MyPost-context");
   };
 
   // UPDATE
@@ -152,7 +112,7 @@ export class Provider extends React.Component {
 
   displayMyPosts = (posts) => {
     if (!this.state.posts.length) return null;
-    console.log("POST IN DISPLAYMYPOSTS: ", this.state.posts);
+    console.log("POST IN DISPLAYMYPOSTS: ", posts);
 
     return this.state.posts.map((post, index) => (
       <div
@@ -184,13 +144,13 @@ export class Provider extends React.Component {
 
   render() {
     return (
-      <Context.Provider value={this.state}>
+      <MyPostsContext.Provider value={this.state}>
         {this.props.children}
-      </Context.Provider>
+      </MyPostsContext.Provider>
     );
   }
 }
 
-export default Context;
+export default MyPostsContext;
 
-export const Consumer = Context.Consumer;
+export const MyPostsConsumer = MyPostsContext.Consumer;
