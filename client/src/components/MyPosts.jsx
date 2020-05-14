@@ -237,10 +237,8 @@ class MyPosts extends React.Component {
               }}
             >
               <h3>My Posts</h3>
-              {/*  {this.displayMyPosts(this.state.posts)} */}
                {this.context.displayMyPosts()}
             </div>
-            {this.modal}
           </>
         )}
       </Consumer>

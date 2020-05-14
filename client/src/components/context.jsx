@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Modal from "./Modal";
 
 const Context = React.createContext();
 
@@ -9,6 +10,7 @@ export class Provider extends React.Component {
     this.state = {
       posts: [],
       myPosts: [],
+      showModal: false,
       loggedInUser: undefined,
       postIdToUpdate: "",
       postTitleToUpdate: "",
@@ -119,7 +121,8 @@ export class Provider extends React.Component {
       withCredentials: "true",
     })
       .then(() => {
-        this.displayMyPosts(this.state.myPosts);
+        this.getAllPosts();
+        this.getMyPosts();
       })
       .catch(() => {
         alert("error deleting data");
@@ -144,6 +147,8 @@ export class Provider extends React.Component {
       .then(() => {
         console.log("data sent to server");
         this.setState({});
+        this.getMyPosts();
+        this.getAllPosts();
       })
       .then(() => {
         this.toggleModal();
@@ -197,42 +202,90 @@ export class Provider extends React.Component {
     ));
   };
 
-  /* displayMyPosts = (myPosts) => {
-    if (!this.state.myPosts.length) return null;
-    console.log("POST IN DISPLAYMYPOSTS: ", this.state.myPosts);
-
-    return this.state.myPosts.map((post, index) => (
-      <div
-        data-id={post._id}
-        data-title={post.title}
-        data-text={post.textContent}
-        key={index}
-        style={{ border: "1px solid black", padding: "0.5rem" }}
-      >
-        <h3>{post.username}</h3>
-        <h4>{post.title}</h4>
-        <p>{post.textContent}</p>
-        <i
-          className="fas fa-trash-alt"
-          onClick={(event) => {
-            this.deletePost(event);
-          }}
-        ></i>
-        <i
-          className="fas fa-edit"
-          onClick={(event) => {
-            this.updatePost(event);
-            this.toggleModal();
-          }}
-        ></i>
-      </div>
-    ));
-  }; */
+  get modal() {
+    if (this.state.showModal) {
+      return (
+        <Modal>
+          <div
+            style={{
+              zIndex: 1,
+              position: "absolute",
+              top: "25%",
+              left: "25%",
+              background: "black",
+              color: "white",
+              height: "20rem",
+              width: "30rem",
+              borderRadius: "1rem",
+              backgroundColor: "#61082b",
+              padding: "2rem",
+              textAlign: "center",
+            }}
+          >
+            <button
+              style={{ position: "absolute", left: "85%", top: "1rem" }}
+              className="myButton"
+              onClick={this.toggleModal}
+            >
+              Close
+            </button>
+            <h1>Update Post</h1>
+            <form
+              onSubmit={this.submitUpdate}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <label style={{ margin: "1rem" }}>Title</label>
+              <input
+                style={{
+                  padding: "0.5rem",
+                  borderRadius: "1rem",
+                  border: "none",
+                  width: "30%",
+                }}
+                type="text"
+                name="postTitleToUpdate"
+                value={this.state.postTitleToUpdate}
+                onChange={this.handelInputChange}
+              />
+              <label style={{ margin: "1rem" }}>Text</label>
+              <input
+                style={{
+                  padding: "0.5rem",
+                  borderRadius: "1rem",
+                  border: "none",
+                  width: "90%",
+                }}
+                type="text"
+                name="postTextToUpdate"
+                value={this.state.postTextToUpdate}
+                onChange={this.handelInputChange}
+              />
+              <div>
+                <button
+                  style={{ margin: "2rem" }}
+                  className="myButton"
+                  type="submit"
+                >
+                  Update
+                </button>
+              </div>
+            </form>
+          </div>
+        </Modal>
+      );
+    }
+    return undefined;
+  }
 
   render() {
     return (
       <Context.Provider value={this.state}>
         {this.props.children}
+        {this.modal}
       </Context.Provider>
     );
   }
