@@ -1,0 +1,17 @@
+[
+    {
+        "_id": ObjectId("5ebd13d32f4cfd28a47b2afb"),
+        "username": "Markus",
+        "password": "$2b$10$QnjnmVd2NTX4UwoWwWJD7.xgQ84Ae7gIE/MbrR6S64WzYVKUCnEry"
+    },
+    {
+        "_id": ObjectId("5ebd144c2f4cfd28a47b2afe"),
+        "username": "Lisa",
+        "password": "$2b$10$a1ftyafKc2sdrr1cfeB8nO7AgFVdpvnwq/3wm8fnowMunLWGfLXXO"
+    },
+    {
+        "_id": ObjectId("5ebd14a22f4cfd28a47b2b00"),
+        "username": "Camilla",
+        "password": "$2b$10$BV5bGW3pB0qF6ia6woEiiuz58.QN84DCnmnJB5M0ADuYmc7VrIaNO"
+    }
+]
