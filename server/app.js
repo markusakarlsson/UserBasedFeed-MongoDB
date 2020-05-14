@@ -12,7 +12,7 @@ const app = express();
 app.use(
   cookieSession({
     secret: "aVeryS3cr3tk3y",
-    maxAge: 1000 * 60, //10s
+    maxAge: 1000 * 600,
     sameSite: "strict",
     httpOnly: true,
     secure: false,
@@ -21,7 +21,7 @@ app.use(
 
 app.use(express.json());
 
-app.use(cors({ credentials: true, origin: ['http://localhost:3000']}));
+app.use(cors({ credentials: true, origin: ["http://localhost:3000"] }));
 
 app.use(express.static("public"));
 
