@@ -12,6 +12,7 @@ export class Provider extends React.Component {
        posts: [],
        getAllPosts: this.getAllPosts,
        displayPosts: this.displayPosts,
+       
       }
   }
 
