@@ -61,9 +61,12 @@ class NewPost extends React.Component {
         {({}) => (
           <div
             style={{
-              border: "1px solid black",
+              marginTop: "3rem",
+              backgroundColor: "#61082b",
+              borderRadius: "1rem",
               height: "30vh",
               width: "25vw",
+              color: "white",
             }}
           >
             <h3>New post</h3>
@@ -76,7 +79,12 @@ class NewPost extends React.Component {
                 placeholder="Title"
               />
               <textarea
-                style={{ fontFamily: "Arial" }}
+                style={{
+                  fontFamily: "Arial",
+                  resize: "none",
+                  borderRadius: "1rem",
+                  padding: "0.4rem",
+                }}
                 placeholder="Write your post here..."
                 name="textContent"
                 value={this.state.textContent}

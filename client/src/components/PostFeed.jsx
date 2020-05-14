@@ -22,7 +22,6 @@ class PostFeed extends React.Component {
       <div
         className="postFeedContainer"
         style={{
-          height: "100vh",
           width: "50vw",
           backgroundColor: "#d8115a",
         }}
