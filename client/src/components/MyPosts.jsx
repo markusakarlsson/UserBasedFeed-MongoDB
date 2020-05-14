@@ -106,10 +106,20 @@ class MyPosts extends React.Component {
         data-title={post.title}
         data-text={post.textContent}
         key={index}
-        style={{ border: "1px solid black", padding: "0.5rem" }}
+        style={{
+          backgroundColor: "#d8115a",
+          borderRadius: "1rem",
+          padding: "0.5rem",
+          color: "white",
+          width: "85%",
+          marginBottom: "1rem",
+        }}
       >
-        <h3>{post.username}</h3>
-        <h4>{post.title}</h4>
+        <h3 style={{ textAlign: "left", margin: "0.5rem" }}>
+          <i className="fas fa-user-circle"></i>
+          {post.username}
+        </h3>
+        <h4 style={{ margin: "0" }}>{post.title}</h4>
         <p>{post.textContent}</p>
         <i
           className="fas fa-trash-alt"
@@ -213,7 +223,6 @@ class MyPosts extends React.Component {
         <div
           className="myPostsContainer"
           style={{
-            border: "1px solid black",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
