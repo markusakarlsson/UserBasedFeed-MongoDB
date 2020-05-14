@@ -43,13 +43,11 @@ class NewPost extends React.Component {
       data: action,
     })
       .then(() => {
-        console.log("data sent to server");
         this.reset();
         this.context.getAllPosts();
         this.context.getMyPosts();
       })
       .catch(() => {
-        console.log("error");
       });
   };
 

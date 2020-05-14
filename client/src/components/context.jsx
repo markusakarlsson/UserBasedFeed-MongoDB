@@ -11,7 +11,6 @@ export class Provider extends React.Component {
       posts: [],
       myPosts: [],
       showModal: false,
-      /* loggedInUser: undefined, */
       postIdToUpdate: "",
       postTitleToUpdate: "",
       postTextToUpdate: "",
@@ -24,12 +23,12 @@ export class Provider extends React.Component {
       deletePost: this.deletePost,
       submitUpdate: this.submitUpdate,
       displayMyPosts: this.displayMyPosts,
-      loggedInUser: false,
-      isLoggedIn: this.isLoggedIn,
+      isLoggedIn: false,
+      authenticated: this.authenticated,
     };
   }
 
-  isLoggedIn = () => {
+  authenticated = () => {
     axios({
       url: "http://localhost:3001/users/authenticate",
       method: "GET",
@@ -37,14 +36,12 @@ export class Provider extends React.Component {
     })
       .then((response) => {
         if (response.status === 200) {
-          this.setState({ loggedInUser: true });
-          console.log("from context", this.state.loggedInUser)
+          this.setState({ isLoggedIn: true });
         }
       })
       .catch(() => {
         alert("error retrieving data");
       });
-      console.log("In main page this.state:", this.state);
     }
 
   // Functions from PostFeed
@@ -161,7 +158,6 @@ export class Provider extends React.Component {
       data: inputValues,
     })
       .then(() => {
-        console.log("data sent to server");
         this.setState({});
         this.getMyPosts();
         this.getAllPosts();
@@ -178,7 +174,6 @@ export class Provider extends React.Component {
 
   displayMyPosts = () => {
     if (!this.state.myPosts.length) return null;
-    console.log("POST IN DISPLAYMYPOSTS: ", this.state.myPosts);
 
     return this.state.myPosts.map((post, index) => (
       <div

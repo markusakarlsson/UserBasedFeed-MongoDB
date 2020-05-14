@@ -1,5 +1,5 @@
 import React from "react";
-import Context, { Consumer } from "./context";
+import Context from "./context";
 
 class MyPosts extends React.Component {
   static contextType = Context;
@@ -10,8 +10,6 @@ class MyPosts extends React.Component {
  
   render() {
     return (
-      <Consumer>
-        {() => (
           <>
             <div
               className="myPostsContainer"
@@ -27,8 +25,6 @@ class MyPosts extends React.Component {
                {this.context.displayMyPosts()}
             </div>
           </>
-        )}
-      </Consumer>
     );
   }
 }

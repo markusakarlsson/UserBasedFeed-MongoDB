@@ -55,18 +55,13 @@ class LogIn extends React.Component {
       credentials: "include",
       body: JSON.stringify(data),
     }).then((data) => {
-      console.log(data)
-      console.log("Status: ", data.status);
       if (data.status === 200) {
-        console.log("Logged in successfully");
-        this.context.isLoggedIn();
+        this.context.authenticated();
         this.successfullyLoggedIn();
         this.context.getMyPosts();
       } else if (data.status === 401) {
-        console.log("Error logging in");
         this.failedLoggingIn();
       } else if (data.status === 422) {
-        console.log("Already logged in");
         this.alreadyLoggedIn();
       }
     });
