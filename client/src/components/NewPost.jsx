@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { Consumer } from "./context";
 import Context from "./context";
 
 class NewPost extends React.Component {
@@ -44,21 +43,17 @@ class NewPost extends React.Component {
       data: action,
     })
       .then(() => {
-        console.log("data sent to server");
         this.reset();
         this.context.getAllPosts();
         this.context.getMyPosts();
       })
       .catch(() => {
-        console.log("error");
       });
   };
 
 
   render() {
     return (
-      <Consumer>
-        {({}) => (
           <div
             style={{
               marginTop: "3rem",
@@ -77,9 +72,12 @@ class NewPost extends React.Component {
                 value={this.state.title}
                 onChange={this.handleChange}
                 placeholder="Title"
+                required
               />
               <textarea
                 style={{
+                  margin: "1rem 0 1rem 0",
+                  border: "none",
                   fontFamily: "Arial",
                   resize: "none",
                   borderRadius: "1rem",
@@ -92,14 +90,13 @@ class NewPost extends React.Component {
                 id="newpost"
                 rows="4"
                 cols="50"
+                required
               ></textarea>
               <button className="myButton" type="submit">
                 Send post
               </button>
             </form>
           </div>
-        )}
-      </Consumer>
     );
   }
 }

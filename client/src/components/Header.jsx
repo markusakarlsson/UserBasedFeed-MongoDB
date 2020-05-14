@@ -45,7 +45,6 @@ class Header extends React.Component {
       data: inputValues,
     })
       .then(() => {
-        console.log("data sent to server");
         this.resetInputFields();
         this.successfullyCreatedUser();
       })
