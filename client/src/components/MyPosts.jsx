@@ -1,28 +1,29 @@
 import React from "react";
 import axios from "axios";
 import Modal from "./Modal";
-import MyPostsContext, { MyPostsConsumer } from "./contextMyPosts";
+import Context, { Consumer } from "./context";
 
 class MyPosts extends React.Component {
-  static contextType = MyPostsContext;
+  static contextType = Context;
 
   state = {
-    posts: [],
+   /*  posts: [], */
     showModal: false,
     postIdToUpdate: "",
     postTitleToUpdate: "",
     postTextToUpdate: "",
   };
 
-  componentWillUpdate = () => {
+  componentDidMount = () => {
    this.context.getMyPosts(); 
   }; 
 
-  /* toggleModal = () => {
+  /*
+   toggleModal = () => {
     this.setState({
       showModal: !this.state.showModal,
     });
-  };
+  }; 
 
   getMyPosts = () => {
     axios({
@@ -97,13 +98,13 @@ class MyPosts extends React.Component {
       .catch(() => {
         alert("Something went wrong");
       });
-  };
+  };*/
 
-  displayMyPosts = (posts) => {
-    if (!posts.length) return null;
+  /* displayMyPosts = (posts) => {
+    if (!this.state.posts.length) return null;
     console.log("POST IN DISPLAYMYPOSTS: ", posts);
 
-    return posts.map((post, index) => (
+    return this.state.posts.map((post, index) => (
       <div
         data-id={post._id}
         data-title={post.title}
@@ -129,9 +130,9 @@ class MyPosts extends React.Component {
         ></i>
       </div>
     ));
-  }; */
+  }; 
 
-  get modal() {
+   get modal() {
     if (this.state.showModal) {
       return (
         <Modal>
@@ -208,11 +209,11 @@ class MyPosts extends React.Component {
       );
     }
     return undefined;
-  }
-
+  } */
+ 
   render() {
     return (
-      <MyPostsConsumer>
+      <Consumer>
         {({}) => (
           <>
             <div
@@ -233,7 +234,7 @@ class MyPosts extends React.Component {
             {this.modal}
           </>
         )}
-      </MyPostsConsumer>
+      </Consumer>
     );
   }
 }

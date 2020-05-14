@@ -8,6 +8,11 @@ export class Provider extends React.Component {
     super();
     this.state = {
       posts: [],
+      myPosts: [],
+      loggedInUser: undefined,
+      postIdToUpdate: "",
+      postTitleToUpdate: "",
+      postTextToUpdate: "",
       getAllPosts: this.getAllPosts,
       displayPosts: this.displayPosts,
       toggleModal: this.toggleModal,
@@ -74,7 +79,7 @@ export class Provider extends React.Component {
       withCredentials: "true",
     })
       .then((response) => {
-        this.setState({ posts: response.data });
+        this.setState({ myPosts: response.data });
         console.log("In function this.state:", this.state);
       })
       .catch(() => {
@@ -114,7 +119,7 @@ export class Provider extends React.Component {
       withCredentials: "true",
     })
       .then(() => {
-        this.displayMyPosts(this.state.posts);
+        this.displayMyPosts(this.state.myPosts);
       })
       .catch(() => {
         alert("error deleting data");
@@ -150,11 +155,11 @@ export class Provider extends React.Component {
 
   //DISPLAY
 
-  displayMyPosts = (posts) => {
-    if (!this.state.posts.length) return null;
-    console.log("POST IN DISPLAYMYPOSTS: ", this.state.posts);
+  displayMyPosts = (myPosts) => {
+    if (!this.state.myPosts.length) return null;
+    console.log("POST IN DISPLAYMYPOSTS: ", this.state.myPosts);
 
-    return this.state.posts.map((post, index) => (
+    return this.state.myPosts.map((post, index) => (
       <div
         data-id={post._id}
         data-title={post.title}

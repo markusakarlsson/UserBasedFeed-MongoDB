@@ -47,17 +47,13 @@ class NewPost extends React.Component {
         console.log("data sent to server");
         this.reset();
         this.context.getAllPosts();
+        this.context.getMyPosts();
       })
       .catch(() => {
         console.log("error");
       });
   };
 
-
-/*   render() {
-    return <Button theme={this.context} />;
-  }
-} */
 
   render() {
     return (

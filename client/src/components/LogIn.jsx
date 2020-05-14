@@ -1,8 +1,8 @@
 import React from "react";
-import MyPostsContext from "./contextMyPosts";
+import Context from "./context";
 
 class LogIn extends React.Component {
-  static contextType = MyPostsContext;
+  static contextType = Context;
 
 
   state = {

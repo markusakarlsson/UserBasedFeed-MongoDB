@@ -12,6 +12,14 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+router.route("/authenticate").get((req, res) => {
+  if (!req.session.username) {
+     res.status(401).json("You are not authorized, log in!");
+  } else {
+    res.status(200).json("You're logged in")
+  }
+});
+
 // Add a new user
 router.route("/add").post(async (req, res) => {
   const username = req.body.username;
