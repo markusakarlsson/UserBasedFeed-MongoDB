@@ -177,7 +177,7 @@ class MyPosts extends React.Component {
                 value={this.state.postTitleToUpdate}
                 onChange={this.handelInputChange}
               />
-              <label style={{ margin: "1rem" }}>Title</label>
+              <label style={{ margin: "1rem" }}>Text</label>
               <input
                 style={{
                   padding: "0.5rem",
