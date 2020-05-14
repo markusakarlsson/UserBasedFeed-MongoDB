@@ -1,18 +1,24 @@
 import React from "react";
 import axios from "axios";
+import Context, { Consumer } from "./context";
 
 class PostFeed extends React.Component {
+  static contextType = Context;
+
   state = {
     posts: [],
   };
 
   componentDidMount = () => {
-    this.getAllPosts();
+    let value = this.context
+    value.getAllPosts(); 
+    /* this.getAllPosts(); */
+
   };
 
  
 
-  getAllPosts = () => {
+   /* getAllPosts = () => {
     axios
       .get("http://localhost:3001/posts/")
       .then((response) => {
@@ -22,9 +28,9 @@ class PostFeed extends React.Component {
       .catch(() => {
         alert("error retrieving data");
       });
-  };
+  }; */
 
-  displayPosts = (posts) => {
+/*   displayPosts = (posts) => {
     if (!posts.length) return null;
 
     return posts.map((post, index) => (
@@ -45,10 +51,12 @@ class PostFeed extends React.Component {
         <p>{post.textContent}</p>
       </div>
     ));
-  };
+  };  */
 
   render() {
     return (
+      <Consumer>
+        {({}) => (
       <div
         className="postFeedContainer"
         style={{
@@ -58,8 +66,11 @@ class PostFeed extends React.Component {
         }}
       >
         <h2 style={{ color: "white" }}>Post feed</h2>
-        {this.displayPosts(this.state.posts)}
+        {this.context.displayPosts()}
+       {/* {this.displayPosts(this.state.posts)} */}
       </div>
+        )}
+      </Consumer>
     );
   }
 }

@@ -1,8 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { Consumer } from "./context";
+import Context from "./context";
 
 class NewPost extends React.Component {
+  static contextType = Context;
+ 
+
   state = {
     title: "",
     textContent: "",
@@ -47,6 +51,12 @@ class NewPost extends React.Component {
         console.log("error");
       });
   };
+
+
+/*   render() {
+    return <Button theme={this.context} />;
+  }
+} */
 
   render() {
     return (
