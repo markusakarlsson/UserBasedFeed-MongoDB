@@ -2,7 +2,6 @@ import React from "react";
 import PostFeed from "./PostFeed";
 import UserPage from "./UserPage";
 import Header from "./Header";
-
 class MainPage extends React.Component {
 
   render() {
@@ -11,7 +10,7 @@ class MainPage extends React.Component {
         <Header />
         <div style={{ display: "flex", flexDirection: "row" }}>
           <PostFeed />
-          <UserPage />
+          <UserPage /> 
         </div>
       </div>
     );
