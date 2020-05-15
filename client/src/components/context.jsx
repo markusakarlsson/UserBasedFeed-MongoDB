@@ -40,7 +40,7 @@ export class Provider extends React.Component {
         }
       })
       .catch(() => {
-        alert("error retrieving data");
+         console.log("Not logged in")
       });
     }
 

@@ -59,8 +59,8 @@ class NewPost extends React.Component {
               marginTop: "3rem",
               backgroundColor: "#61082b",
               borderRadius: "1rem",
-              height: "30vh",
-              width: "25vw",
+              height: "15rem",
+              width: "25rem",
               color: "white",
             }}
           >

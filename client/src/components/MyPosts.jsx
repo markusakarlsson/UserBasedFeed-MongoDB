@@ -18,7 +18,7 @@ class MyPosts extends React.Component {
                 flexDirection: "column",
                 alignItems: "center",
                 width: "100%",
-                height: "40vh",
+                height: "40vh"
               }}
             >
               <h3>My Posts</h3>

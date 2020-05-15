@@ -104,7 +104,7 @@ class LogIn extends React.Component {
             required
           />
           <button className="myButton" type="submit">
-            Login
+            Sign in
           </button>
         </form>
       </div>

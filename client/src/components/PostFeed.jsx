@@ -1,5 +1,5 @@
 import React from "react";
-import Context, { Consumer } from "./context";
+import Context from "./context";
 
 class PostFeed extends React.Component {
   static contextType = Context;
@@ -12,21 +12,17 @@ class PostFeed extends React.Component {
 
   render() {
     return (
-      <Consumer>
-        {() => (
       <div
         className="postFeedContainer"
         style={{
           width: "50vw",
-          minHeight: "100vh",
+          minHeight: "86vh",
           backgroundColor: "#d8115a",
         }}
       >
         <h2 style={{ color: "white" }}>Post feed</h2>
         {this.context.displayPosts()}
       </div>
-        )}
-      </Consumer>
     );
   }
 }
