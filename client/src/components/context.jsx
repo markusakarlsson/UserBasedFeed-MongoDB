@@ -40,9 +40,9 @@ export class Provider extends React.Component {
         }
       })
       .catch(() => {
-         console.log("Not logged in")
+        console.log("Not logged in");
       });
-    }
+  };
 
   // Functions from PostFeed
 
@@ -147,6 +147,8 @@ export class Provider extends React.Component {
   submitUpdate = (event) => {
     event.preventDefault();
 
+    console.log(this.state.postIdToUpdate);
+
     const inputValues = {
       title: this.state.postTitleToUpdate,
       textContent: this.state.postTextToUpdate,
@@ -156,6 +158,7 @@ export class Provider extends React.Component {
       url: "http://localhost:3001/posts/" + this.state.postIdToUpdate,
       method: "PUT",
       data: inputValues,
+      withCredentials: "true",
     })
       .then(() => {
         this.setState({});
@@ -188,7 +191,7 @@ export class Provider extends React.Component {
           color: "white",
           width: "85%",
           marginBottom: "1rem",
-          paddingBottom: "1rem"
+          paddingBottom: "1rem",
         }}
       >
         <h3 style={{ textAlign: "left", margin: "0.5rem" }}>
