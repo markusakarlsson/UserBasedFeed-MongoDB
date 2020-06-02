@@ -1,14 +1,9 @@
-// GET all users
-GET http://localhost:3001/users
-
-###
-
 // Add/create a user
 POST http://localhost:3001/users/add
 Content-type: application/json
 
 {
-    "username": "Kajsa",
+    "username": "Pelle",
     "password": "123"
 }
 
@@ -22,3 +17,7 @@ Content-Type: application/json
     "username": "Evelina",
     "password": "123"
 }
+
+###
+
+DELETE http://localhost:3001/users/logout
